@@ -1,16 +1,35 @@
 {
-    "name": "haassie/yoast_news",
+    "name": "web-tp3/yoast-news",
     "description": "Integrate Yoast SEO for TYPO3 in EXT:news",
     "type": "typo3-cms-extension",
+    "version": "4.0.0",
     "license": "GPL-3.0-or-later",
     "require": {
-        "yoast-seo-for-typo3/yoast_seo": "^5.0",
-        "georgringer/news": "^7.0"
+      "yoast-seo-for-typo3/yoast_seo": "^9.0",
+        "georgringer/news": "*",
+      "typo3/cms-core" : "^10 || ^11"
+    },
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "yoast_news",
+			"cms-package-dir": "{$vendor-dir}/typo3/cms",
+			"web-dir": ".Build/Web"
+
+		}
+	},
+    "autoload": {
+        "psr-4": {
+            "WebTp3\\YoastNews\\": "Classes/"
+        }
     },
     "authors": [
+      {
+        "name": "Richard Haeser",
+        "email": "richardhaeser@gmail.com"
+      },
         {
-            "name": "Richard Haeser",
-            "email": "richardhaeser@gmail.com"
+            "name": "Thomas Ruta",
+            "email": "email@thomasruta.de"
         }
     ]
 }

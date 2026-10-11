@@ -1,0 +1,15 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  WebTp3\YoastNews\:
+    resource: '../Classes/*'
+    exclude: '../Classes/Form/*'
+
+  WebTp3\YoastNews\EventListener\SharePreview:
+    tags:
+      - name: event.listener
+        identifier: 'yoast-news/share-preview'
+        event: GeorgRinger\News\Event\NewsDetailActionEvent
