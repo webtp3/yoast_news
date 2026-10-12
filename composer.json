@@ -2,12 +2,11 @@
     "name": "web-tp3/yoast-news",
     "description": "Integrate Yoast SEO for TYPO3 in EXT:news",
     "type": "typo3-cms-extension",
-    "version": "4.0.0",
     "license": "GPL-3.0-or-later",
     "require": {
-      "yoast-seo-for-typo3/yoast_seo": "^9.0",
-        "georgringer/news": "*",
-      "typo3/cms-core" : "^10 || ^11"
+      "yoast-seo-for-typo3/yoast_seo": "^10 || ^11",
+      "typo3/cms-core" : "^11 || ^12 || ^13",
+        "georgringer/news": "*"
     },
 	"extra": {
 		"typo3/cms": {
@@ -23,10 +22,6 @@
         }
     },
     "authors": [
-      {
-        "name": "Richard Haeser",
-        "email": "richardhaeser@gmail.com"
-      },
         {
             "name": "Thomas Ruta",
             "email": "email@thomasruta.de"

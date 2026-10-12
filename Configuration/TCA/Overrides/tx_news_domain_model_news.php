@@ -57,55 +57,53 @@ foreach (['og_image', 'twitter_image'] as $fieldName) {
     $socialImageColumns[$fieldName] = [
         'exclude' => true,
         'label' => 'LLL:EXT:seo/Resources/Private/Language/locallang_tca.xlf:pages.' . $fieldName,
-        'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-            $fieldName,
-            [
-                'behaviour' => [
-                    'allowLanguageSynchronization' => true,
-                ],
-                'overrideChildTca' => [
-                    'types' => [
-                        '0' => [
-                            'showitem' => '--palette--;;imageoverlayPalette, --palette--;;filePalette',
-                        ],
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                            'showitem' => '--palette--;;imageoverlayPalette, --palette--;;filePalette',
-                        ],
+        'config' => [
+            'type' => 'file',
+            'allowed' => 'common-image-types',
+            'behaviour' => [
+                'allowLanguageSynchronization' => true,
+            ],
+            'overrideChildTca' => [
+                'types' => [
+                    '0' => [
+                        'showitem' => '--palette--;;imageoverlayPalette, --palette--;;filePalette',
                     ],
-                    'columns' => [
-                        'crop' => [
-                            'config' => [
-                                'cropVariants' => [
-                                    'default' => ['disabled' => true],
-                                    'social' => [
-                                        'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.crop_variant.social',
-                                        'coverAreas' => [],
-                                        'cropArea' => [
-                                            'x' => 0.0,
-                                            'y' => 0.0,
-                                            'width' => 1.0,
-                                            'height' => 1.0,
-                                        ],
-                                        'allowedAspectRatios' => [
-                                            '1.91:1' => [
-                                                'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.191_1',
-                                                'value' => 1200 / 630,
-                                            ],
-                                            'NaN' => [
-                                                'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
-                                                'value' => 0.0,
-                                            ],
-                                        ],
-                                        'selectedRatio' => '1.91:1',
+                    \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                        'showitem' => '--palette--;;imageoverlayPalette, --palette--;;filePalette',
+                    ],
+                ],
+                'columns' => [
+                    'crop' => [
+                        'config' => [
+                            'cropVariants' => [
+                                'default' => ['disabled' => true],
+                                'social' => [
+                                    'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.crop_variant.social',
+                                    'coverAreas' => [],
+                                    'cropArea' => [
+                                        'x' => 0.0,
+                                        'y' => 0.0,
+                                        'width' => 1.0,
+                                        'height' => 1.0,
                                     ],
+                                    'allowedAspectRatios' => [
+                                        '1.91:1' => [
+                                            'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.191_1',
+                                            'value' => 1200 / 630,
+                                        ],
+                                        'NaN' => [
+                                            'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
+                                            'value' => 0.0,
+                                        ],
+                                    ],
+                                    'selectedRatio' => '1.91:1',
                                 ],
                             ],
                         ],
                     ],
                 ],
             ],
-            $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-        ),
+        ],
     ];
 }
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
